@@ -27,9 +27,9 @@ void SobelFilter::do_filter() {
     //     }
     //   }
     // }
-    unsigned char temp1 = i_r.read();
-    unsigned char temp2 = i_r.read();
-    unsigned char temp3 = i_r.read();
+    float temp1 = i_r.read();
+    float temp2 = i_r.read();
+    float temp3 = i_r.read();
 
     float result = (temp1/6) + (temp2/3) + (temp3/2);
     // double total = 0;
@@ -38,7 +38,7 @@ void SobelFilter::do_filter() {
     // }
     // int result = (int)(std::sqrt(total));
     o_result.write(result);
-    // printf("%f\n",result);
+    printf("%f\n",result);
     wait(10); //emulate module delay
   }
 }

@@ -163,7 +163,7 @@ void Testbench::do_sobel() {
       else{
         R = x_input_signal[i+j];
       }
-      printf("%f\n",R);
+      // printf("%f\n",R);
       o_r.write(R);
       wait(1); //emulate channel delay
     }
