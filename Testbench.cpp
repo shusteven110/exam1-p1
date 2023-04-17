@@ -155,7 +155,7 @@ void Testbench::do_sobel() {
   //         wait(1); //emulate channel delay
   //       }
   //     }
-  for(int i=0;i<128;i++){
+  for(int i=0;i<256;i++){
     for(int j=-1;j<=1;j++){
       if(i+j<0 || i+j>=128){
         R = 0;
