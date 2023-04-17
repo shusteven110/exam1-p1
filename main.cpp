@@ -10,13 +10,13 @@ int sc_main(int argc, char *argv[]) {
   sc_signal<bool> rst("rst");
 
   //Create sc_signal channels
-  sc_signal<sc_uint<WIDTH> > s_i_a_msg;
+  sc_signal<float<WIDTH> > s_i_a_msg;
   sc_signal<bool> s_i_a_rdy;
   sc_signal<bool> s_i_a_vld;
-  sc_signal<sc_uint<WIDTH> > s_i_b_msg;
+  sc_signal<float<WIDTH> > s_i_b_msg;
   sc_signal<bool> s_i_b_rdy;
   sc_signal<bool> s_i_b_vld;
-  sc_signal<sc_uint<WIDTH + 1> > s_o_sum_msg;
+  sc_signal<float<WIDTH + 1> > s_o_sum_msg;
   sc_signal<bool> s_o_sum_rdy;
   sc_signal<bool> s_o_sum_vld;
 

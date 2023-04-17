@@ -29,11 +29,13 @@ public:
     i_b_port.rdy.write(false); 
     o_sum_port.vld.write(false);
     while (true) {
-        _i_a = i_a_port.read();
-        _i_b = i_b_port.read();
-        _o_sum = _i_a + _i_b;
-        printf("%d\n",_o_sum);
-        o_sum_port.write(_o_sum);
+        // _i_a = i_a_port.read();
+        // _i_b = i_b_port.read();
+        float temp1 = i_a_port.read();
+        float temp2 = i_a_port.read();
+        float temp3 = i_a_port.read();
+        float result = (temp1/6) + (temp2/3) + (temp3/2);
+        o_sum_port.write(result);
         wait();
     }
   }
