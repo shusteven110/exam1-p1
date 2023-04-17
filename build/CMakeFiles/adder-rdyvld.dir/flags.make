@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -isystem /opt/systemc/include
 
-CXX_FLAGS =  -O3 -Wall -D CLOCK_PERIOD=1.0 -std=gnu++14
+CXX_FLAGS =  -O2 -Wall -std=gnu++14
 

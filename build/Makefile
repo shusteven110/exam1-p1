@@ -117,98 +117,24 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named sobel
+# Target rules for targets named adder-rdyvld
 
 # Build rule for target.
-sobel: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 sobel
-.PHONY : sobel
+adder-rdyvld: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 adder-rdyvld
+.PHONY : adder-rdyvld
 
 # fast build rule for target.
-sobel/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sobel.dir/build.make CMakeFiles/sobel.dir/build
-.PHONY : sobel/fast
-
-#=============================================================================
-# Target rules for targets named run
-
-# Build rule for target.
-run: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 run
-.PHONY : run
-
-# fast build rule for target.
-run/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/build
-.PHONY : run/fast
-
-#=============================================================================
-# Target rules for targets named check
-
-# Build rule for target.
-check: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 check
-.PHONY : check
-
-# fast build rule for target.
-check/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/check.dir/build.make CMakeFiles/check.dir/build
-.PHONY : check/fast
-
-SobelFilter.o: SobelFilter.cpp.o
-.PHONY : SobelFilter.o
-
-# target to build an object file
-SobelFilter.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sobel.dir/build.make CMakeFiles/sobel.dir/SobelFilter.cpp.o
-.PHONY : SobelFilter.cpp.o
-
-SobelFilter.i: SobelFilter.cpp.i
-.PHONY : SobelFilter.i
-
-# target to preprocess a source file
-SobelFilter.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sobel.dir/build.make CMakeFiles/sobel.dir/SobelFilter.cpp.i
-.PHONY : SobelFilter.cpp.i
-
-SobelFilter.s: SobelFilter.cpp.s
-.PHONY : SobelFilter.s
-
-# target to generate assembly for a file
-SobelFilter.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sobel.dir/build.make CMakeFiles/sobel.dir/SobelFilter.cpp.s
-.PHONY : SobelFilter.cpp.s
-
-Testbench.o: Testbench.cpp.o
-.PHONY : Testbench.o
-
-# target to build an object file
-Testbench.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sobel.dir/build.make CMakeFiles/sobel.dir/Testbench.cpp.o
-.PHONY : Testbench.cpp.o
-
-Testbench.i: Testbench.cpp.i
-.PHONY : Testbench.i
-
-# target to preprocess a source file
-Testbench.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sobel.dir/build.make CMakeFiles/sobel.dir/Testbench.cpp.i
-.PHONY : Testbench.cpp.i
-
-Testbench.s: Testbench.cpp.s
-.PHONY : Testbench.s
-
-# target to generate assembly for a file
-Testbench.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sobel.dir/build.make CMakeFiles/sobel.dir/Testbench.cpp.s
-.PHONY : Testbench.cpp.s
+adder-rdyvld/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/adder-rdyvld.dir/build.make CMakeFiles/adder-rdyvld.dir/build
+.PHONY : adder-rdyvld/fast
 
 main.o: main.cpp.o
 .PHONY : main.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sobel.dir/build.make CMakeFiles/sobel.dir/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/adder-rdyvld.dir/build.make CMakeFiles/adder-rdyvld.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -216,7 +142,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sobel.dir/build.make CMakeFiles/sobel.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/adder-rdyvld.dir/build.make CMakeFiles/adder-rdyvld.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -224,7 +150,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sobel.dir/build.make CMakeFiles/sobel.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/adder-rdyvld.dir/build.make CMakeFiles/adder-rdyvld.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -235,15 +161,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... check"
-	@echo "... run"
-	@echo "... sobel"
-	@echo "... SobelFilter.o"
-	@echo "... SobelFilter.i"
-	@echo "... SobelFilter.s"
-	@echo "... Testbench.o"
-	@echo "... Testbench.i"
-	@echo "... Testbench.s"
+	@echo "... adder-rdyvld"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

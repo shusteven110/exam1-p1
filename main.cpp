@@ -1,56 +1,49 @@
-#include <iostream>
-#include <string>
-using namespace std;
+#include "stim.h"
+#define CLOCK_PERIOD 1.0
 
-// Wall Clock Time Measurement
-#include <sys/time.h>
-
-#include "SobelFilter.h"
-#include "Testbench.h"
-
-// TIMEVAL STRUCT IS Defined ctime
-// use start_time and end_time variables to capture
-// start of simulation and end of simulation
-struct timeval start_time, end_time;
-
-// int main(int argc, char *argv[])
-int sc_main(int argc, char **argv) {
-  if ((argc < 3) || (argc > 4)) {
-    cout << "No arguments for the executable : " << argv[0] << endl;
-    cout << "Usage : >" << argv[0] << " in_image_file_name out_image_file_name"
-         << endl;
-    return 0;
-  }
+int sc_main(int argc, char *argv[]) {
+  
   //Create modules and signals
-  Testbench tb("tb");
-  SobelFilter sobel_filter("sobel_filter");
+  stim testbench("testbench");
+  adder dut("dut", 1);
   sc_clock clk("clk", CLOCK_PERIOD, SC_NS);
   sc_signal<bool> rst("rst");
 
-  //Create FIFO channels
-  sc_fifo<float> r;
-  // sc_fifo<unsigned char> g;
-  // sc_fifo<unsigned char> b;
-  sc_fifo<float> result;
+  //Create sc_signal channels
+  sc_signal<sc_uint<WIDTH> > s_i_a_msg;
+  sc_signal<bool> s_i_a_rdy;
+  sc_signal<bool> s_i_a_vld;
+  sc_signal<sc_uint<WIDTH> > s_i_b_msg;
+  sc_signal<bool> s_i_b_rdy;
+  sc_signal<bool> s_i_b_vld;
+  sc_signal<sc_uint<WIDTH + 1> > s_o_sum_msg;
+  sc_signal<bool> s_o_sum_rdy;
+  sc_signal<bool> s_o_sum_vld;
 
   //Connect FIFO channels with modules
-  tb.i_clk(clk);
-  tb.o_rst(rst);
-  sobel_filter.i_clk(clk);
-  sobel_filter.i_rst(rst);
-  tb.o_r(r);
-  // tb.o_g(g);
-  // tb.o_b(b);
-  tb.i_result(result);
-  sobel_filter.i_r(r);
-  // sobel_filter.i_g(g);
-  // sobel_filter.i_b(b);
-  sobel_filter.o_result(result);
+  testbench.i_clk(clk);
+  testbench.o_rst(rst);
+  dut.i_clk(clk);
+  dut.i_rst(rst);
+  testbench.o_a.msg(s_i_a_msg);
+  testbench.o_a.vld(s_i_a_vld);
+  testbench.o_a.rdy(s_i_a_rdy);
+  testbench.o_b.msg(s_i_b_msg);
+  testbench.o_b.vld(s_i_b_vld);
+  testbench.o_b.rdy(s_i_b_rdy);
+  testbench.i_sum.msg(s_o_sum_msg);
+  testbench.i_sum.vld(s_o_sum_vld);
+  testbench.i_sum.rdy(s_o_sum_rdy);
+  dut.i_a_port.msg(s_i_a_msg);
+  dut.i_a_port.vld(s_i_a_vld);
+  dut.i_a_port.rdy(s_i_a_rdy);
+  dut.i_b_port.msg(s_i_b_msg);
+  dut.i_b_port.vld(s_i_b_vld);
+  dut.i_b_port.rdy(s_i_b_rdy);
+  dut.o_sum_port.msg(s_o_sum_msg);
+  dut.o_sum_port.vld(s_o_sum_vld);
+  dut.o_sum_port.rdy(s_o_sum_rdy);
 
-  // tb.read_bmp(argv[1]);
-  sc_start();
-  std::cout << "Simulated time == " << sc_core::sc_time_stamp() << std::endl;
-  // tb.write_bmp(argv[2]);
-
+  sc_start(65, SC_NS);
   return 0;
 }
