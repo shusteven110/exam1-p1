@@ -30,9 +30,9 @@ public:
   int read_bmp(string infile_name);
   int write_bmp(string outfile_name);
 
-  unsigned int get_width() { return width; }
+  // unsigned int get_width() { return width; }
 
-  unsigned int get_height() { return height; }
+  // unsigned int get_height() { return height; }
 
   unsigned int get_width_bytes() { return width_bytes; }
 
