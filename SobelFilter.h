@@ -9,7 +9,7 @@ class SobelFilter : public sc_module {
 public:
   sc_in_clk i_clk;
   sc_in<bool> i_rst;
-  sc_fifo_in<unsigned char> i_r;
+  sc_fifo_in<float> i_r;
   // sc_fifo_in<unsigned char> i_g;
   // sc_fifo_in<unsigned char> i_b;
   sc_fifo_out<float> o_result;

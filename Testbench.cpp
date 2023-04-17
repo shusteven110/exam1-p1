@@ -125,7 +125,7 @@ void Testbench::do_sobel() {
   // unsigned char R, G, B; // color of R, G, B
   // int adjustX, adjustY, xBound, yBound;
   // int total;
-  unsigned char R;
+  float R;
   o_rst.write(false);
   o_rst.write(true);
   // for (y = 0; y != height; ++y) {

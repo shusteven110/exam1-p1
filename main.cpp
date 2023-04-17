@@ -29,7 +29,7 @@ int sc_main(int argc, char **argv) {
   sc_signal<bool> rst("rst");
 
   //Create FIFO channels
-  sc_fifo<unsigned char> r;
+  sc_fifo<float> r;
   // sc_fifo<unsigned char> g;
   // sc_fifo<unsigned char> b;
   sc_fifo<float> result;
