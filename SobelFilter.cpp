@@ -30,7 +30,6 @@ void SobelFilter::do_filter() {
     float temp1 = i_r.read();
     float temp2 = i_r.read();
     float temp3 = i_r.read();
-
     float result = (temp1/6) + (temp2/3) + (temp3/2);
     // double total = 0;
     // for (unsigned int i = 0; i != MASK_N; ++i) {
@@ -38,7 +37,7 @@ void SobelFilter::do_filter() {
     // }
     // int result = (int)(std::sqrt(total));
     o_result.write(result);
-    printf("%f\n",result);
-    wait(10); //emulate module delay
+    printf("%f %d\n",result);
+    wait(3); //emulate module delay
   }
 }

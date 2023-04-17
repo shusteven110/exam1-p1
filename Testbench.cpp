@@ -163,15 +163,14 @@ void Testbench::do_sobel() {
       else{
         R = x_input_signal[i+j];
       }
-      printf("%f %d\n",R,i_result.num_available());
+      // printf("%f %d\n",R);
       o_r.write(R);
       wait(1); //emulate channel delay
     }
   }
-  printf("dfsfs");
-  if(i_result.num_available()==0) wait(i_result.data_written_event());
-  total = i_result.read();
-  cout << "Now at " << sc_time_stamp() << endl; //print current sc_time
+  // if(i_result.num_available()==0) wait(i_result.data_written_event());
+  // float total = i_result.read();
+  // cout << "Now at " << sc_time_stamp() << endl; //print current sc_time
 
   //     if (total - THRESHOLD >= 0) {
   //       // black
