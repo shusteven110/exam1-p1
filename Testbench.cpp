@@ -5,25 +5,25 @@ using namespace std;
 
 #include "Testbench.h"
 
-unsigned char header[54] = {
-    0x42,          // identity : B
-    0x4d,          // identity : M
-    0,    0, 0, 0, // file size
-    0,    0,       // reserved1
-    0,    0,       // reserved2
-    54,   0, 0, 0, // RGB data offset
-    40,   0, 0, 0, // struct BITMAPINFOHEADER size
-    0,    0, 0, 0, // bmp width
-    0,    0, 0, 0, // bmp height
-    1,    0,       // planes
-    24,   0,       // bit per pixel
-    0,    0, 0, 0, // compression
-    0,    0, 0, 0, // data size
-    0,    0, 0, 0, // h resolution
-    0,    0, 0, 0, // v resolution
-    0,    0, 0, 0, // used colors
-    0,    0, 0, 0  // important colors
-};
+// unsigned char header[54] = {
+//     0x42,          // identity : B
+//     0x4d,          // identity : M
+//     0,    0, 0, 0, // file size
+//     0,    0,       // reserved1
+//     0,    0,       // reserved2
+//     54,   0, 0, 0, // RGB data offset
+//     40,   0, 0, 0, // struct BITMAPINFOHEADER size
+//     0,    0, 0, 0, // bmp width
+//     0,    0, 0, 0, // bmp height
+//     1,    0,       // planes
+//     24,   0,       // bit per pixel
+//     0,    0, 0, 0, // compression
+//     0,    0, 0, 0, // data size
+//     0,    0, 0, 0, // h resolution
+//     0,    0, 0, 0, // v resolution
+//     0,    0, 0, 0, // used colors
+//     0,    0, 0, 0  // important colors
+// };
 
 Testbench::Testbench(sc_module_name n)
     : sc_module(n), output_rgb_raw_data_offset(54) {
@@ -163,15 +163,15 @@ void Testbench::do_sobel() {
       else{
         R = x_input_signal[i+j];
       }
-      // printf("%f\n",R);
+      printf("%f %d\n",R,i_result.num_available());
       o_r.write(R);
       wait(1); //emulate channel delay
     }
   }
   printf("dfsfs");
-  //     if(i_result.num_available()==0) wait(i_result.data_written_event());
-  //     total = i_result.read();
-  //     cout << "Now at " << sc_time_stamp() << endl; //print current sc_time
+  if(i_result.num_available()==0) wait(i_result.data_written_event());
+  total = i_result.read();
+  cout << "Now at " << sc_time_stamp() << endl; //print current sc_time
 
   //     if (total - THRESHOLD >= 0) {
   //       // black
